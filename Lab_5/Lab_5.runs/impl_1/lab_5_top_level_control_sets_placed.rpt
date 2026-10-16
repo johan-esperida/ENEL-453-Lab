@@ -1,0 +1,86 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Fri Oct 16 10:15:45 2026
+| Host         : MSI running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file lab_5_top_level_control_sets_placed.rpt
+| Design       : lab_5_top_level
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |     8 |
+|    Minimum number of control sets                        |     8 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    29 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |     8 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     4 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              22 |            7 |
+| Yes          | No                    | No                     |              51 |           51 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |            2186 |          458 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+-----------------------------------------------------+--------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                    Enable Signal                    |        Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+-----------------------------------------------------+--------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | BIN_TO_BCD/p_1_in                                   | BIN_TO_BCD/bcd_out[12]_i_1_n_0 |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | SEVEN_SEGMENT_DISPLAY/DIGIT_SELECTOR/selected_digit | reset_IBUF                     |                3 |              4 |         1.33 |
+|  clk_IBUF_BUFG |                                                     | BIN_TO_BCD/count               |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG | BIN_TO_BCD/bcd_out[15]_i_1_n_0                      | reset_IBUF                     |                3 |             12 |         4.00 |
+|  clk_IBUF_BUFG |                                                     | reset_IBUF                     |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG | BIN_TO_BCD/scratch[31]_i_1_n_0                      | BIN_TO_BCD/count               |                9 |             32 |         3.56 |
+|  clk_IBUF_BUFG | XADC_INST/drdy_out                                  | reset_IBUF                     |              442 |           2134 |         4.83 |
+|  clk_IBUF_BUFG | XADC_INST/drdy_out                                  |                                |              572 |           2236 |         3.91 |
++----------------+-----------------------------------------------------+--------------------------------+------------------+----------------+--------------+
+
+
