@@ -1,0 +1,97 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Wed Oct 28 11:31:22 2026
+| Host         : MSI running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file lab_6_top_level_control_sets_placed.rpt
+| Design       : lab_6_top_level
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    19 |
+|    Minimum number of control sets                        |    19 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    46 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    19 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     5 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     4 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     2 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     7 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               5 |            4 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              49 |           19 |
+| Yes          | No                    | No                     |              16 |           16 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             444 |          111 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+-----------------------------------------+---------------------------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |              Enable Signal              |                  Set/Reset Signal                 | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+-----------------------------------------+---------------------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | SEVEN_SEGMENT_DISPLAY/DIGIT_SELECTOR/q  | SEVEN_SEGMENT_DISPLAY/DIGIT_SELECTOR/q[3]_i_1_n_0 |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | BIN2BCD/bcd_out[12]_i_2_n_0             | BIN2BCD/bcd_out[12]_i_1_n_0                       |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG |                                         |                                                   |                4 |              5 |         1.25 |
+|  clk_IBUF_BUFG |                                         | BIN2BCD/bcd_out[12]_i_1_n_0                       |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG | chirp_inst/downcounter_inst/zero        | chirp_inst/pwm_count[4]_i_1_n_0                   |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG |                                         | sawtooth/pwm_inst/counter[7]_i_1_n_0              |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG |                                         | triangle_pwm_inst/pwm_inst/counter[7]_i_1_n_0     |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | sawtooth/downcounter_inst/zero          | sawtooth/duty_cycle[0]_i_1_n_0                    |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | triangle_pwm_inst/downcounter_inst/zero | triangle_pwm_inst/duty_cycle[0]_i_1_n_0           |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | chirp_inst/downcounter_inst/zero        | chirp_inst/step_period_count[9]_i_1_n_0           |                3 |             10 |         3.33 |
+|  clk_IBUF_BUFG | BIN2BCD/bcd_out[15]_i_1_n_0             | reset_IBUF                                        |                5 |             12 |         2.40 |
+|  clk_IBUF_BUFG | FSM/chirp_en                            | reset_IBUF                                        |                4 |             13 |         3.25 |
+|  clk_IBUF_BUFG | FSM/buzzer_enable                       | reset_IBUF                                        |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | triangle_module_en                      | reset_IBUF                                        |                8 |             18 |         2.25 |
+|  clk_IBUF_BUFG | FSM/sawtooth_en                         | reset_IBUF                                        |                8 |             19 |         2.38 |
+|  clk_IBUF_BUFG |                                         | reset_IBUF                                        |               13 |             28 |         2.15 |
+|  clk_IBUF_BUFG | BIN2BCD/scratch[31]_i_1_n_0             | BIN2BCD/bcd_out[12]_i_1_n_0                       |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG | ADC_PROC/scaled_product_i_1_n_0         |                                                   |               32 |            144 |         4.50 |
+|  clk_IBUF_BUFG | ADC_PROC/scaled_product_i_1_n_0         | reset_IBUF                                        |               60 |            295 |         4.92 |
++----------------+-----------------------------------------+---------------------------------------------------+------------------+----------------+--------------+
+
+
