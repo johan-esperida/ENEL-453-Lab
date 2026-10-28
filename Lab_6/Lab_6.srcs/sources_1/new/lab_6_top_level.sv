@@ -93,26 +93,7 @@ module lab_6_top_level (
         .ready_pulse(ready_pulse)
     );
     
-    // Connect ADC data to LEDs, make LEDs' brightness pulse with pwm_out
-    assign led = pwm_out ? scaled_adc_data : '0;
-    always_comb begin
-        if(triangle_en | sawtooth_en) begin
-            AN1 = pwm_out ? AN1_internal : '1;
-            AN2 = pwm_out ? AN2_internal : '1;
-            AN3 = pwm_out ? AN3_internal : '1;
-            AN4 = pwm_out ? AN4_internal : '1;
-        end
-        else begin
- 
-            AN1 = AN1_internal;
-            AN2 = AN2_internal;
-            AN3 = AN3_internal;
-            AN4 = AN4_internal;
-        end
-     end
- 
- 
- 
+    brightness_control BRIGHTNESS (.*);             
    
     bin_to_bcd BIN2BCD (
         .clk(    clk),
@@ -147,7 +128,7 @@ module lab_6_top_level (
     );
     
     logic triangle_module_en;
-    assign triangle_module_en = triangle_en | r2r_enable;
+    
     // Instantiate the triangle_generator module
     triangle_generator #(
         .WIDTH(8),           // Bit width for duty_cycle (e.g. 8)
@@ -158,7 +139,7 @@ module lab_6_top_level (
         .reset(reset),       // Connect to system reset
         .enable(triangle_module_en), // Connect to enable signal
         .pwm_out(pwm_out_triangle), // Connect to PWM output signal
-        .R2R_out(R2R_out_internal_triangle)  // Connect to R2R ladder header, can leave empty if 
+        .R2R_out(R2R_out_internal)  // Connect to R2R ladder header, can leave empty if 
     );                              // not required, i.e. .R2R_out()
     
     sawtooth #(
@@ -169,8 +150,7 @@ module lab_6_top_level (
         .clk(clk),
         .reset(reset),
         .enable(sawtooth_en),
-        .pwm_out(pwm_out_sawtooth),
-        .R2R_out(R2R_out_internal_sawtooth) 
+        .pwm_out(pwm_out_sawtooth)
     );
     
     buzzer_pwm #(
@@ -189,16 +169,8 @@ module lab_6_top_level (
         .enable(chirp_enable),
         .pwm_out(buzzer_out_chirp) // Connect this to the buzzer output pin
     );
-
-    // Output multiplexing based on FSM state
-    always_comb begin
-        pwm_out_internal = mode_select[2] ? pwm_out_sawtooth : pwm_out_triangle;
-        pwm_out = (triangle_en | sawtooth_en) ? pwm_out_internal : '0;
-        R2R_out_internal = mode_select[2] ? R2R_out_internal_sawtooth : R2R_out_internal_triangle;
-        R2R_out = r2r_enable ? R2R_out_internal : '0;
-        
-        buzzer_out_internal = mode_select[2] ? buzzer_out_chirp : pwm_out_regular;
-        buzzer_out = (buzzer_enable | chirp_enable) ? buzzer_out_internal : 0;
-    end
+    
+    
+    output_selector OUTPUTS (.*);                               
     
 endmodule

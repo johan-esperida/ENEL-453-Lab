@@ -58,7 +58,7 @@ if {$::dispatch::connected} {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 5
 set_param general.usePosixSpawnForFork 1
-set_param synth.incrementalSynthesisCache C:/Users/avimo/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-47932-MSI/incrSyn
+set_param synth.incrementalSynthesisCache C:/Users/avimo/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-19840-MSI/incrSyn
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
@@ -83,11 +83,13 @@ read_verilog -library xil_defaultlib -sv {
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/adc_processing.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/averager.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/bin_to_bcd.sv
+  C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/brightness_control.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/buzzer_pwm.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/digit_multiplexor.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/downcounter.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/mux4_16_bits.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/output_mode_fsm.sv
+  C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/output_selector.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/pwm.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/sawtooth.sv
   C:/453_labs/Lab_6/Lab_6.srcs/sources_1/new/seven_segment_decoder.sv

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date             : Wed Oct 28 11:31:41 2026
+| Date             : Wed Oct 28 13:24:02 2026
 | Host             : MSI running 64-bit major release  (build 9200)
 | Command          : report_power -file lab_6_top_level_power_routed.rpt -pb lab_6_top_level_power_summary_routed.pb -rpx lab_6_top_level_power_routed.rpx
 | Design           : lab_6_top_level
@@ -33,7 +33,7 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.087        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.015        |
+| Dynamic (W)              | 0.016        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.6         |
@@ -53,15 +53,15 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.003 |        3 |       --- |             --- |
-| Slice Logic             |     0.002 |     1139 |       --- |             --- |
-|   LUT as Logic          |     0.001 |      351 |     20800 |            1.69 |
+| Slice Logic             |     0.002 |     1140 |       --- |             --- |
+|   LUT as Logic          |     0.001 |      343 |     20800 |            1.65 |
 |   CARRY4                |    <0.001 |       30 |      8150 |            0.37 |
 |   Register              |    <0.001 |      514 |     41600 |            1.24 |
 |   LUT as Shift Register |    <0.001 |      128 |      9600 |            1.33 |
 |   Others                |     0.000 |       30 |       --- |             --- |
-| Signals                 |     0.002 |      804 |       --- |             --- |
+| Signals                 |     0.001 |      803 |       --- |             --- |
 | DSPs                    |     0.001 |        1 |        90 |            1.11 |
-| I/O                     |     0.006 |       46 |       106 |           43.40 |
+| I/O                     |     0.007 |       46 |       106 |           43.40 |
 | XADC                    |     0.002 |        1 |       --- |             --- |
 | Static Power            |     0.072 |          |           |                 |
 | Total                   |     0.087 |          |           |                 |
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.017 |       0.007 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.017 |       0.008 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -143,7 +143,7 @@ Table of Contents
 +-----------------+-----------+
 | Name            | Power (W) |
 +-----------------+-----------+
-| lab_6_top_level |     0.015 |
+| lab_6_top_level |     0.016 |
 |   ADC_PROC      |     0.003 |
 |     AVERAGER    |     0.002 |
 |   XADC_INST     |     0.002 |

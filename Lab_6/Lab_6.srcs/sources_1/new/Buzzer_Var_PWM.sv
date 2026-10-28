@@ -54,7 +54,7 @@ module buzzer_chirp #(
     
     //counter for steps in total period
     localparam int STEP_COUNT_WIDTH = $clog2(CHIRP_STEP_NUMBER);
-    logic [STEP_COUNT_WIDTH-1:0] period_count = CHIRP_STEP_NUMBER;
+    logic [STEP_COUNT_WIDTH-1:0] period_count = 1;
     logic [STEP_COUNT_WIDTH-1:0] pwm_count = 0;
 
     
@@ -68,7 +68,7 @@ module buzzer_chirp #(
     always_ff @(posedge clk) begin
         if (reset) begin
             step_period_count <= 0;
-            period_count <= 0;
+            period_count <= 1;
             pwm_count <= 0;
             
         end else if (zero) begin
@@ -78,7 +78,7 @@ module buzzer_chirp #(
             
                 //period handling
                 if (period_count >= CHIRP_STEP_NUMBER) 
-                    period_count <= 0;
+                    period_count <= 1;
                 else
                     period_count <= period_count + 1;
         
@@ -87,7 +87,7 @@ module buzzer_chirp #(
                 step_period_count <= step_period_count + 1; // Count up for step period
 
             
-            if (pwm_count >= CHIRP_STEP_NUMBER) begin
+            if (pwm_count >= CHIRP_STEP_NUMBER - 1) begin
                     pwm_count <= 0;
                     pwm_out = ~pwm_out;
                     

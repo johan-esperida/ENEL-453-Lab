@@ -36,8 +36,7 @@ module sawtooth
         input  logic clk,      // System clock (100 MHz)
         input  logic reset,    // Active-high reset
         input  logic enable,   // Active-high enable
-        output logic pwm_out,  // PWM output signal
-        output logic [WIDTH-1:0] R2R_out // R2R ladder output
+        output logic pwm_out   // PWM output signal
     );
 
     // Calculate maximum duty cycle value based on WIDTH
@@ -59,7 +58,6 @@ module sawtooth
     logic [WIDTH-1:0] duty_cycle; // Duty cycle value for PWM
     logic dir;                    // Direction of duty_cycle counter: 1 = up, 0 = down
     
-    assign R2R_out = duty_cycle; // R2R ladder resistor circuit automatically generates the analog voltage
 
     // Instantiate downcounter module
     downcounter #(
