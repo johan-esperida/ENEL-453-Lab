@@ -43,6 +43,7 @@ module triangle_generator
         .clk(clk),
         .reset(reset),
         .enable(enable),  // Use the enable input
+        .count_step(enable),
         .zero(zero)       // Pulses high every DOWNCOUNTER_PERIOD clock cycles
     );
 

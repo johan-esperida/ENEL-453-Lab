@@ -20,6 +20,7 @@ module buzzer_pwm #(
         .clk(clk),
         .reset(reset),
         .enable(enable),
+        .count_step(enable),
         .zero(zero) // Pulses at the desired frequency
     );
 
