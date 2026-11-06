@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Fri Nov  6 12:45:09 2026
+# Process ID         : 12028
+# Current directory  : C:/453_labs/ENEL-453-Lab/MVP/MVP.runs/impl_1
+# Command line       : vivado.exe -log disk_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source disk_top.tcl -notrace
+# Log file           : C:/453_labs/ENEL-453-Lab/MVP/MVP.runs/impl_1/disk_top.vdi
+# Journal file       : C:/453_labs/ENEL-453-Lab/MVP/MVP.runs/impl_1\vivado.jou
+# Running On         : MSI
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) Ultra 7 155H
+# CPU Frequency      : 2995 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 22
+# Host memory        : 16665 MB
+# Swap memory        : 33285 MB
+# Total Virtual      : 49951 MB
+# Available Virtual  : 27220 MB
+#-----------------------------------------------------------
+source disk_top.tcl -notrace
